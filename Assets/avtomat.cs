@@ -9,12 +9,12 @@ public class avtomat : MonoBehaviour, Iweapon
     [SerializeField] XRGrabInteractable xgab;
     [SerializeField] Transform rayorig;
     [SerializeField] LayerMask lay;
-    public avmagazine currentmagazineav;
+    public ovmagaz currentmagazineav;
 
-    public const float timer = 0.3f;
+    public const float timer = 0.1f;// 0.3f;
     public float curtimer = -0.1f;
 
-    public bool Ismagazineonplaceav = true, firetime = false;
+    public bool Ismagazineonplaceav = false , firetime = false;
 
     public int avtom_damage = 1;
 
@@ -33,22 +33,11 @@ public class avtomat : MonoBehaviour, Iweapon
     private void strelba11(ActivateEventArgs arg0)
     {
         firetime = true;
-        currentweapon.Currentweapon_2 = this;
     }
 
     private void stroppp(DeactivateEventArgs arg0)
     {
         firetime = false;
-    }
-
-    public void settermag(XRBaseInteractable interactable)
-    {
-        this.currentmagazineav = interactable.GetComponent<avmagazine>();
-    }
-
-    public void setter(bool p)
-    {
-        this.Ismagazineonplaceav = p;
     }
 
     void Update()
@@ -76,8 +65,9 @@ public class avtomat : MonoBehaviour, Iweapon
 
     public void fire()
     {
-        if (Ismagazineonplaceav && currentmagazineav != null && currentmagazineav.bullets > 0)
+        if (Ismagazineonplaceav)
         {
+            Debug.Log("avshot");
             weaponsoundShot();
             RaycastHit hit;
             if (Physics.Raycast(rayorig.position, rayorig.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, lay))
@@ -91,10 +81,16 @@ public class avtomat : MonoBehaviour, Iweapon
                     }
                 }
             }
+            currentmagazineav.bullets--;
+            if (currentmagazineav.bullets == 0)
+            {
+                currentmagazineav.perezar(this);
+            }
         }
         else
         {
-            if (currentmagazineav == null)
+            Debug.Log("no magazine");
+            /*if (currentmagazineav == null)
                 Debug.LogWarning("not avtomat magazine");
             if (!Ismagazineonplaceav)
                 Debug.LogWarning("not avtomat on place");
@@ -102,7 +98,7 @@ public class avtomat : MonoBehaviour, Iweapon
             {
                 //weaponsoundReload();
                 Debug.LogWarning("avtomat havent patrons");
-            }
+            }*/
         }
     }
 

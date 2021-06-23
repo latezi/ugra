@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.XR.Interaction.Toolkit;
 
-[CustomEditor(typeof(socketwithtagcheck))]
-public class socketwithtageditor : XRSocketInteractorEditor
+[CustomEditor(typeof(avtagchecker))]
+public class socketaveditor : XRSocketInteractorEditor
 {
-    private SerializedProperty targetTag = null;
+    private SerializedProperty targetuTag = null;
     protected override void OnEnable()
     {
         base.OnEnable();
-        targetTag = serializedObject.FindProperty("targetTag");
+        targetuTag = serializedObject.FindProperty("targetuTag");
     }
-    
+
     protected override void DrawProperties()
     {
         base.DrawProperties();
-        EditorGUILayout.PropertyField(targetTag);
+        EditorGUILayout.PropertyField(targetuTag);
     }
 }

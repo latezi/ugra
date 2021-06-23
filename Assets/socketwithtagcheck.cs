@@ -43,7 +43,6 @@ public class socketwithtagcheck : XRSocketInteractor
     {
         return base.CanSelect(interactable) && match(interactable) && interactable.GetComponent<magazine>().grabactive;
     }
-    public override bool isSelectActive => base.isSelectActive;
     private bool match(XRBaseInteractable interactable)
     {
         return interactable.CompareTag(targetTag);

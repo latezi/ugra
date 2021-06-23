@@ -10,7 +10,6 @@ public class magazine : XRGrabInteractable //monobehavior
     public socketwithtagcheck tty;
     public bool grabactive = true;
     public int bullets = 8;
-    SelectExitEventArgs arg0;
 
     protected override void OnEnable()
     {
@@ -24,10 +23,7 @@ public class magazine : XRGrabInteractable //monobehavior
    
     public void perezar(pistolet a)
     {
-        //arg0.interactable = this;
-        //arg0.interactor = tty;
         grabactive = false;
         tty.onSelectExit.Invoke(this);
-        //tty.selectExited.Invoke(arg0);
     }
 }

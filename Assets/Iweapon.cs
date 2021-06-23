@@ -7,9 +7,5 @@ public interface Iweapon
 
     void weaponsoundShot();
 
-    void weaponsoundReload();
-
-    void setter(bool p);
-
-    void settermag(XRBaseInteractable interactable);
+    void weaponsoundReload(); 
 }

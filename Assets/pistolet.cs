@@ -32,14 +32,14 @@ public class pistolet : MonoBehaviour, Iweapon
 
     private void opushen(SelectExitEventArgs arg0)
     {
-        if (currentweapon.currentweapon_1!= null && currentweapon.currentweapon_1.Equals(this))
+        /*if (currentweapon.currentweapon_1!= null && currentweapon.currentweapon_1.Equals(this))
         {
             currentweapon.currentweapon_1 = null;
         }
         else
         {
             currentweapon.currentweapon_2 = null;
-        }      
+        }  */    
     }
 
     private void stroppp(DeactivateEventArgs arg0)
@@ -57,14 +57,14 @@ public class pistolet : MonoBehaviour, Iweapon
 
     private void podobran(SelectEnterEventArgs arg0)
     {
-        if (currentweapon.currentweapon_1 == null)
+        /*if (currentweapon.currentweapon_1 == null)
         {
             currentweapon.currentweapon_1 = this;
         }
         else
         {
             currentweapon.currentweapon_2 = this;
-        }
+        }*/
     }
 
     private void strelba(ActivateEventArgs arg0)
@@ -72,23 +72,15 @@ public class pistolet : MonoBehaviour, Iweapon
         fire();
     }
 
-    public void setter(bool p)
-    {
-        this.Ismagazineonplace = p;
-    }
-
-    public void settermag(XRBaseInteractable interactable)
-    {
-        this.currentmagazine = interactable.GetComponent<magazine>();
-    }
     public void fire()
     {
-        Debug.LogWarning(currentmagazine != null);
-        Debug.LogWarning(currentweapon.currentweapon_1 != null && this.Equals(currentweapon.Currentweapon_1));
-        Debug.LogWarning(currentweapon.currentweapon_2 != null && this.Equals(currentweapon.Currentweapon_2));
-        Debug.LogWarning(Ismagazineonplace);
+        //Debug.LogWarning(currentmagazine != null);
+        //Debug.LogWarning(currentweapon.currentweapon_1 != null && this.Equals(currentweapon.Currentweapon_1));
+        //Debug.LogWarning(currentweapon.currentweapon_2 != null && this.Equals(currentweapon.Currentweapon_2));
+        //Debug.LogWarning(Ismagazineonplace);
+        //&& (this.Equals(currentweapon.Currentweapon_1) || this.Equals(currentweapon.Currentweapon_2))
 
-        if (currentmagazine != null && (this.Equals(currentweapon.Currentweapon_1) || this.Equals(currentweapon.Currentweapon_2)) && Ismagazineonplace)
+        if (currentmagazine != null && Ismagazineonplace)
         {
             weaponsoundShot();
             RaycastHit hit;
