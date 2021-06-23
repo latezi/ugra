@@ -24,6 +24,6 @@ public class magazine : XRGrabInteractable //monobehavior
     public void perezar(pistolet a)
     {
         grabactive = false;
-        tty.onSelectExit.Invoke(this);
+        tty.onSelectExited.Invoke(this);
     }
 }

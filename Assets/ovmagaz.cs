@@ -11,7 +11,7 @@ public class ovmagaz : XRGrabInteractable
     public void perezar(avtomat a)
     {
         grabactive = false;
-        tty.onSelectExit.Invoke(this);
+        tty.onSelectExited.Invoke(this);
     }
 }
 
