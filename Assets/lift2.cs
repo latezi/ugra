@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-public class lift : MonoBehaviour
+public class lift2 : MonoBehaviour
 {
     public bool otrk = false;
-
+    public GameObject left;
     public float u = 0.001f;
 }
