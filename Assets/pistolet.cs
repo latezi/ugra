@@ -74,12 +74,6 @@ public class pistolet : MonoBehaviour, Iweapon
 
     public void fire()
     {
-        //Debug.LogWarning(currentmagazine != null);
-        //Debug.LogWarning(currentweapon.currentweapon_1 != null && this.Equals(currentweapon.Currentweapon_1));
-        //Debug.LogWarning(currentweapon.currentweapon_2 != null && this.Equals(currentweapon.Currentweapon_2));
-        //Debug.LogWarning(Ismagazineonplace);
-        //&& (this.Equals(currentweapon.Currentweapon_1) || this.Equals(currentweapon.Currentweapon_2))
-
         if (currentmagazine != null && Ismagazineonplace)
         {
             weaponsoundShot();
@@ -103,15 +97,7 @@ public class pistolet : MonoBehaviour, Iweapon
         }
         else
         {
-            /*if (currentmagazine == null)
-                Debug.LogWarning("not magazine");
-            if (!Ismagazineonplace)
-                Debug.LogWarning("not on place");
-            if (currentmagazine.bullets == 0)
-            {
-                weaponsoundReload();
-                Debug.LogWarning("havent patrons");
-            }*/
+            weaponsoundReload();
         }
     }
 
