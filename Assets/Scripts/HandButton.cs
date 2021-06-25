@@ -16,24 +16,30 @@ public class HandButton : XRBaseInteractable
 
     protected override void Awake()
     {
+
         base.Awake();
-        onHoverEnter.AddListener(Startpress);
-        onHoverExit.AddListener(Findpress);
+        hoverEntered.AddListener(Startpress);
+
+        //onHoverEnter.AddListener(Startpress);
+        hoverExited.AddListener(Findpress);
+        //onHoverExit.AddListener(Findpress);
     }
 
-    private void OnDestroy()
+    private new void OnDestroy()
     {
-        onHoverEnter.RemoveListener(Startpress);
-        onHoverExit.RemoveListener(Findpress);
+        hoverEntered.RemoveListener(Startpress);
+        hoverExited.RemoveListener(Findpress);
+        //onHoverEnter.RemoveListener(Startpress);
+        // onHoverExit.RemoveListener(Findpress);
     }
 
-    private void Startpress(XRBaseInteractor arg0)
+    private void Startpress(HoverEnterEventArgs arg0)
     {
-        hoveriteractor = arg0;
+        hoveriteractor = arg0.interactor;
         previousHandHeight = GetLocalYPosition(hoveriteractor.transform.position);
     }
 
-    private void Findpress(XRBaseInteractor arg0)
+    private void Findpress(HoverExitEventArgs arg0)
     {
         hoveriteractor = null;
         previousHandHeight = 0.0f;

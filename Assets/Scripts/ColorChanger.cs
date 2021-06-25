@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ColorChanger : MonoBehaviour
@@ -15,22 +16,32 @@ public class ColorChanger : MonoBehaviour
         originalMaterial = meshRenderer.material;
 
         interactable = GetComponent<XRBaseInteractable>();
-        interactable.onHoverEnter.AddListener(SetSelectMaterial);
-        interactable.onHoverExit.AddListener(SetOriginalMaterial);
+
+        //interactable.hoverEntered.AddListener(SetSelectMaterial);
+        
+        interactable.hoverEntered.AddListener(SetSelectMaterial);
+        interactable.hoverExited.AddListener(SetOriginalMaterial);
+
+        //interactable.onHoverEnter.AddListener(SetSelectMaterial);
+        //interactable.onHoverExit.AddListener(SetOriginalMaterial);
     }
 
     private void OnDestroy()
     {
-        interactable.onHoverEnter.RemoveListener(SetSelectMaterial);
-        interactable.onHoverExit.RemoveListener(SetOriginalMaterial);
+
+        interactable.hoverEntered.RemoveListener(SetSelectMaterial);
+        interactable.hoverExited.RemoveListener(SetOriginalMaterial);
+
+       /* interactable.onHoverEnter.RemoveListener(SetSelectMaterial);
+        interactable.onHoverExit.RemoveListener(SetOriginalMaterial);*/
     }
 
-    private void SetSelectMaterial(XRBaseInteractor interactor)
+    private void SetSelectMaterial(HoverEnterEventArgs arg0)
     {
         meshRenderer.material = selectMaterial;
     }
 
-    private void SetOriginalMaterial(XRBaseInteractor interactor)
+    private void SetOriginalMaterial(HoverExitEventArgs arg0)
     {
         meshRenderer.material = originalMaterial;
     }
