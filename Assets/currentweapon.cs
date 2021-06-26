@@ -10,6 +10,8 @@ public class currentweapon : MonoBehaviour
     public static Iweapon currentweapon_2 = null;
     //public static bool ismag2pnplace = false;
 
+    public static List<Itarget> targets = new List<Itarget>();
+
     public static Iweapon Currentweapon_1
     {
         get
@@ -31,5 +33,16 @@ public class currentweapon : MonoBehaviour
         {
             currentweapon_2 = value;
         }
+    }
+    public static List<Itarget> Targets
+    {
+        get
+        {
+            return targets;
+        }
+    }
+    public static void adder(Itarget targ)
+    {
+        targets.Add(targ);
     }
 }

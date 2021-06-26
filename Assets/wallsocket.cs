@@ -8,27 +8,33 @@ public class wallsocket : XRSocketInteractor
 {
     public GameObject trgobject;
     private List<GameObject> spawned = new List<GameObject>();
+
+    protected override void Awake()
+    {
+        selectExited.AddListener(razryazen);
+        base.Awake();
+    }
     protected override void OnEnable()
     {
-        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation));
-        selectExited.AddListener(razryazen);
+        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation).gameObject);
         base.OnEnable();
     }
+
     protected override void OnDisable()
     {
         selectExited.RemoveListener(razryazen);
+        base.OnDisable();
+    }
+    protected override void OnDestroy()
+    {
         foreach (var o in spawned)
         {
-            if (o != null)
-            {
-                Destroy(o);
-            }
-            
+           Destroy(o.gameObject);
         }
-        base.OnDisable();
+        base.OnDestroy();
     }
     private void razryazen(SelectExitEventArgs arg0)
     {
-        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation));
+         spawned.Add(Instantiate(trgobject, transform.position, transform.rotation).gameObject);
     }
 }

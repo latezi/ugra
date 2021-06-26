@@ -9,6 +9,7 @@ TagManager:
   - oboyma
   - avoboyma
   - player
+  - weapon
   layers:
   - Default
   - TransparentFX
