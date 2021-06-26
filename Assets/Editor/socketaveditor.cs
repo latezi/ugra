@@ -8,6 +8,7 @@ using UnityEditor.XR.Interaction.Toolkit;
 public class socketaveditor : XRSocketInteractorEditor
 {
     private SerializedProperty targetuTag = null;
+
     protected override void OnEnable()
     {
         base.OnEnable();

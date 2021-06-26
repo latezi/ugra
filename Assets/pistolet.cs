@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-public class pistolet : MonoBehaviour, Iweapon
+public class pistolet : XRBaseInteractable, Iweapon
 {    
     [SerializeField] XRGrabInteractable xgab;
     [SerializeField] Transform rayorig;
@@ -17,12 +17,7 @@ public class pistolet : MonoBehaviour, Iweapon
 
     public int pistol_damage = 8;
 
-    public void Awake()
-    {
-        
-    }
-
-    private void OnEnable()
+    protected override void OnEnable()
     {
         xgab.selectEntered.AddListener(podobran);
         xgab.selectExited.AddListener(opushen);
@@ -47,7 +42,7 @@ public class pistolet : MonoBehaviour, Iweapon
 
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         xgab.selectEntered.RemoveListener(podobran);
         xgab.selectExited.RemoveListener(opushen);

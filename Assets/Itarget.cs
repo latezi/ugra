@@ -1,9 +1,11 @@
+using UnityEngine;
 public interface Itarget
 {
-    void catchbullet(int dam);
+    void catchbullet(float dam);
 
     void Animation();
 
     void sound();
 
+    Vector3 distance();
 }

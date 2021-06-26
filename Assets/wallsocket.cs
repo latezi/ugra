@@ -16,7 +16,6 @@ public class wallsocket : XRSocketInteractor
     }
     protected override void OnEnable()
     {
-        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation).gameObject);
         base.OnEnable();
     }
 

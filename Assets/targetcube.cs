@@ -5,10 +5,15 @@ using UnityEngine.Events;
 
 public class targetcube : MonoBehaviour, Itarget
 {
-    public int hps = 1;
+    public float hps = 1;
     public AudioSource Sound;
     public firsttartgets gde;
-    public void catchbullet(int dam)
+
+    private void OnEnable()
+    {
+        currentweapon.adder(this);
+    }
+    public void catchbullet(float dam)
     {
         sound();
         hps -= dam;
@@ -27,5 +32,10 @@ public class targetcube : MonoBehaviour, Itarget
     public void Animation()
     {
         
+    }
+
+    public Vector3 distance()
+    {
+        return transform.position;
     }
 }

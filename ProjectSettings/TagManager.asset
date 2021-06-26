@@ -10,6 +10,7 @@ TagManager:
   - avoboyma
   - player
   - weapon
+  - cheka
   layers:
   - Default
   - TransparentFX
