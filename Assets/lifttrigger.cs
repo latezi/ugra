@@ -19,7 +19,7 @@ public class lifttrigger : MonoBehaviour
     {
         if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
-            if (other.GetComponentInParent<avtagchecker>()== null && other.GetComponentInParent<socketwithtagcheck>() == null && other.GetComponentInParent<sword>() == null)
+            if (other.GetComponent<magazine>()!= null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.GetComponent<kromch>() != null || other.GetComponent<swordd>()!= null)
             {
                 z.Add(other.gameObject);
             }           
@@ -27,10 +27,10 @@ public class lifttrigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("button") && !other.CompareTag("player"))
+        if (other.GetComponent<magazine>() != null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.GetComponent<kromch>() != null || other.GetComponent<swordd>() != null)
         {
             z.Remove(other.gameObject);
-        }      
+        }
     }
     public void teleport()
     {
@@ -42,7 +42,6 @@ public class lifttrigger : MonoBehaviour
             {
                 t.transform.parent = spawnobject.transform;
             }
-            
         }
         lift.player.transform.position = lift.kuda.transform.position - new Vector3(0,1,0);
         spawnobject.transform.position = lift.kuda.transform.position;

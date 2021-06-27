@@ -7,14 +7,12 @@ using System;
 public class wallsocket : XRSocketInteractor
 {
     public GameObject trgobject;
-    private List<GameObject> spawned = new List<GameObject>();
-
+    public GameObject spawnobject;
     protected override void Awake()
     {
         selectExited.AddListener(razryazen);
         selectEntered.AddListener(added);
-        var a = Instantiate(trgobject, transform.position, transform.rotation);
-        a.transform.parent = this.transform;
+        Instantiate(trgobject, transform.position, transform.rotation).transform.parent = spawnobject.transform;     
         base.Awake();
     }
 
@@ -41,6 +39,6 @@ public class wallsocket : XRSocketInteractor
     private void razryazen(SelectExitEventArgs arg0)
     {
         var a = Instantiate(trgobject, transform.position, transform.rotation);
-        a.transform.parent = this.transform;
+        a.transform.parent = spawnobject.transform;
     }
 }
