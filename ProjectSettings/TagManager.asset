@@ -11,6 +11,8 @@ TagManager:
   - player
   - weapon
   - cheka
+  - button
+  - gren
   layers:
   - Default
   - TransparentFX

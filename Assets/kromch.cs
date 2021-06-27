@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class kromch : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class kromch : MonoBehaviour
     public float maxDistance = 10f;
     public float grenade_damage = 10f;
     public Itarget[] targets1;
+    public GameObject chekka;
 
     public void Update()
     {
@@ -30,6 +32,7 @@ public class kromch : MonoBehaviour
                         }
                     }
                 }
+                chekka.transform.parent = null;
                 Destroy(gameObject);
             }
             else
