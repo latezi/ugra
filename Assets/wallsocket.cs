@@ -13,7 +13,8 @@ public class wallsocket : XRSocketInteractor
     {
         selectExited.AddListener(razryazen);
         selectEntered.AddListener(added);
-        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation).gameObject);
+        var a = Instantiate(trgobject, transform.position, transform.rotation);
+        a.transform.parent = this.transform;
         base.Awake();
     }
 
@@ -31,11 +32,7 @@ public class wallsocket : XRSocketInteractor
     {
         selectExited.RemoveListener(razryazen);
         selectEntered.RemoveListener(added);
-        foreach (var o in spawned)
-        {
-            Destroy(o);
-        }
-        //base.OnDisable();
+        base.OnDisable();
     }
     protected override void OnDestroy()
     {      
@@ -43,6 +40,7 @@ public class wallsocket : XRSocketInteractor
     }
     private void razryazen(SelectExitEventArgs arg0)
     {
-        spawned.Add(Instantiate(trgobject, transform.position, transform.rotation).gameObject);
+        var a = Instantiate(trgobject, transform.position, transform.rotation);
+        a.transform.parent = this.transform;
     }
 }
