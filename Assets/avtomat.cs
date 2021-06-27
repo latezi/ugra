@@ -18,16 +18,18 @@ public class avtomat : MonoBehaviour, Iweapon
 
     public int avtom_damage = 1;
 
-    private void OnEnable()
+    public void OnEnable()
     {
         xgab.activated.AddListener(strelba11);
         xgab.deactivated.AddListener(stroppp);
+       // base.OnEnable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         xgab.activated.RemoveListener(strelba11);
         xgab.deactivated.RemoveListener(stroppp);
+        //base.OnDisable();
     }
 
     private void strelba11(ActivateEventArgs arg0)
