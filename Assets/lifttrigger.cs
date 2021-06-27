@@ -19,7 +19,7 @@ public class lifttrigger : MonoBehaviour
     {
         if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
-            if (other.GetComponent<magazine>()!= null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.GetComponent<kromch>() != null || other.GetComponent<swordd>()!= null)
+            if (other.GetComponent<magazine>()!= null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.CompareTag("gren") || other.GetComponent<swordd>()!= null || other.GetComponent<cheee>() != null)
             {
                 z.Add(other.gameObject);
             }           
@@ -27,7 +27,7 @@ public class lifttrigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<magazine>() != null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.GetComponent<kromch>() != null || other.GetComponent<swordd>() != null)
+        if (other.GetComponent<magazine>() != null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.CompareTag("gren") || other.GetComponent<swordd>() != null || other.GetComponent<cheee>() != null)
         {
             z.Remove(other.gameObject);
         }
@@ -38,10 +38,24 @@ public class lifttrigger : MonoBehaviour
         spawnobject.transform.position = parent.transform.position;
         foreach (var t in z)
         {
-            if (!t.GetComponent<XRGrabInteractable>().isSelected)
+            if (t != null)
             {
-                t.transform.parent = spawnobject.transform;
+                if (!t.GetComponent<XRGrabInteractable>().isSelected)
+                {
+                    if (t.GetComponent<cheee>() != null)
+                    {
+                        if (!t.GetComponent<cheee>().onplace)
+                        {
+                            t.transform.parent = spawnobject.transform;
+                        }
+                    }
+                    else
+                    {
+                        t.transform.parent = spawnobject.transform;
+                    }
+                }
             }
+            
         }
         lift.player.transform.position = lift.kuda.transform.position - new Vector3(0,1,0);
         spawnobject.transform.position = lift.kuda.transform.position;

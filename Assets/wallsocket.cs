@@ -12,7 +12,7 @@ public class wallsocket : XRSocketInteractor
     {
         selectExited.AddListener(razryazen);
         selectEntered.AddListener(added);
-        Instantiate(trgobject, transform.position, transform.rotation).transform.parent = spawnobject.transform;     
+        Instantiate(trgobject, transform.position, transform.rotation).transform.SetParent(spawnobject.transform);
         base.Awake();
     }
 
@@ -38,7 +38,6 @@ public class wallsocket : XRSocketInteractor
     }
     private void razryazen(SelectExitEventArgs arg0)
     {
-        var a = Instantiate(trgobject, transform.position, transform.rotation);
-        a.transform.parent = spawnobject.transform;
+        Instantiate(trgobject, transform.position, transform.rotation).transform.SetParent(spawnobject.transform);
     }
 }

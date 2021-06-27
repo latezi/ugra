@@ -32,6 +32,7 @@ public class kromch : MonoBehaviour
                         }
                     }
                 }
+                chekka.GetComponent<cheee>().onplace = false;
                 chekka.transform.parent = null;
                 Destroy(gameObject);
             }

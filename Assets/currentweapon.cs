@@ -6,11 +6,22 @@ public class currentweapon : MonoBehaviour
 {
     public static Iweapon currentweapon_1 = null;
     //public static bool ismag1pnplace = false;
-    
+
+    public static GameObject parent;
+
     public static Iweapon currentweapon_2 = null;
     //public static bool ismag2pnplace = false;
 
     public static List<Itarget> targets = new List<Itarget>();
+
+    public static GameObject Parent
+    {
+        get
+        {
+            return parent;
+        }
+    }
+
 
     public static Iweapon Currentweapon_1
     {
