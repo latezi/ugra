@@ -8,7 +8,6 @@ public class lifttrigger : MonoBehaviour
     public liftteleport lift;
     List<GameObject> z;
     public GameObject parent;
-    int i = 0;
 
     private void Start()
     {
@@ -18,24 +17,34 @@ public class lifttrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("button"))
+        if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
-            z.Add(other.gameObject);
+            if (other.GetComponentInParent<avtagchecker>()== null && other.GetComponentInParent<socketwithtagcheck>() == null && other.GetComponentInParent<sword>() == null)
+            {
+                z.Add(other.gameObject);
+            }           
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("button"))
+        if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
             z.Remove(other.gameObject);
         }      
     }
     public void teleport()
     {
-        foreach(var t in z)
+        GameObject spawnobject = new GameObject();
+        spawnobject.transform.position = parent.transform.position;
+        foreach (var t in z)
         {
-            t.transform.parent = parent.transform;
+            if (!t.GetComponent<XRGrabInteractable>().isSelected)
+            {
+                t.transform.parent = spawnobject.transform;
+            }
+            
         }
-        parent.transform.position = lift.kuda.transform.position;
+        lift.player.transform.position = lift.kuda.transform.position - new Vector3(0,1,0);
+        spawnobject.transform.position = lift.kuda.transform.position;
     }
 }

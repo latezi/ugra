@@ -19,49 +19,12 @@ public class pistolet : MonoBehaviour, Iweapon
 
     public void OnEnable()
     {
-        xgab.selectEntered.AddListener(podobran);
-        xgab.selectExited.AddListener(opushen);
         xgab.activated.AddListener(strelba);
-        xgab.deactivated.AddListener(stroppp);
-        //base.OnEnable();
-    }
-
-    private void opushen(SelectExitEventArgs arg0)
-    {
-        /*if (currentweapon.currentweapon_1!= null && currentweapon.currentweapon_1.Equals(this))
-        {
-            currentweapon.currentweapon_1 = null;
-        }
-        else
-        {
-            currentweapon.currentweapon_2 = null;
-        }  */    
-    }
-
-    private void stroppp(DeactivateEventArgs arg0)
-    {
-
     }
 
     public void OnDisable()
     {
-        xgab.selectEntered.RemoveListener(podobran);
-        xgab.selectExited.RemoveListener(opushen);
         xgab.activated.RemoveListener(strelba);
-        xgab.deactivated.RemoveListener(stroppp);
-        //base.OnDisable();
-    }
-
-    private void podobran(SelectEnterEventArgs arg0)
-    {
-        /*if (currentweapon.currentweapon_1 == null)
-        {
-            currentweapon.currentweapon_1 = this;
-        }
-        else
-        {
-            currentweapon.currentweapon_2 = this;
-        }*/
     }
 
     private void strelba(ActivateEventArgs arg0)
