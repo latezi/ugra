@@ -28,7 +28,7 @@ public class kromch : MonoBehaviour
                         if (Vector3.Distance(transform.position, o.distance()) < maxDistance)
                         {
                             Debug.Log("ranen");
-                            o.catchbullet(Vector3.Distance(transform.position, o.distance() * grenade_damage));
+                            o.catchbullet(Vector3.Distance(transform.position, o.distance() / grenade_damage));
                         }
                     }
                 }

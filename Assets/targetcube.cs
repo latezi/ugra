@@ -9,6 +9,7 @@ public class targetcube : MonoBehaviour, Itarget
     public AudioSource Sound;
     public firsttartgets gde;
 
+
     private void OnEnable()
     {
         currentweapon.adder(this);

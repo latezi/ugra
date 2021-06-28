@@ -9,6 +9,8 @@ public class firsttartgets : XRSocketInteractor
     public GameObject trgobject;
     //private List<GameObject> spawned1 = new List<GameObject>();
     private GameObject lastobject;
+    public bool a = false;
+    public float currenttimer = 3.0f;
     protected override void OnEnable()
     {
         lastobject = Instantiate(trgobject, transform.position, transform.rotation);
@@ -20,6 +22,7 @@ public class firsttartgets : XRSocketInteractor
         Destroy(lastobject);
         base.OnDisable();
     }
+
     public void newcube()
     {
         Debug.Log("spawned");
