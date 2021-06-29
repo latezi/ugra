@@ -20,6 +20,7 @@ public class targetcube : MonoBehaviour, Itarget
         hps -= dam;
         if (hps <1)
         {
+            currentweapon.Targets.Remove(this);
             Destroy(gameObject);
             gde.newcube();
         }              

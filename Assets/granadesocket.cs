@@ -25,12 +25,14 @@ public class granadesocket : XRSocketInteractor
 
     private void readytoexplore(SelectExitEventArgs arg0)
     {
+        arg0.interactable.GetComponent<cheee>().onplace = false;
         verh.GetComponent<kromch>().exploretime = true;
         showInteractableHoverMeshes = true;
     }
     private void stop(SelectEnterEventArgs arg0)
     {
         Debug.Log("chekaaa");
+        arg0.interactable.GetComponent<cheee>().onplace = true;
         verh.GetComponent<kromch>().chekka = arg0.interactable.gameObject;
         verh.GetComponent<kromch>().exploretime = false;
         verh.GetComponent<kromch>().extimer = verh.GetComponent<kromch>().timer;
