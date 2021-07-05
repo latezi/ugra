@@ -23,10 +23,26 @@ public class firsttartgets : XRSocketInteractor
         base.OnDisable();
     }
 
-    public void newcube()
+    void Update()
     {
-        Debug.Log("spawned");
-        lastobject = Instantiate(trgobject, transform.position, transform.rotation);
-        lastobject.GetComponent<targetcube>().gde = this;
+        if (a)
+        {
+            if (currenttimer<0)
+            {
+                a = false;
+                lastobject = Instantiate(trgobject, transform.position, transform.rotation);
+                lastobject.GetComponent<targetcube>().gde = this;
+                Debug.Log("spawned");
+            }
+            else
+            {
+                currenttimer -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void newcube()
+    {     
+       // a = true;
     }
 }

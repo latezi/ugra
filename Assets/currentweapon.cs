@@ -22,7 +22,6 @@ public class currentweapon : MonoBehaviour
         }
     }
 
-
     public static Iweapon Currentweapon_1
     {
         get
@@ -55,5 +54,17 @@ public class currentweapon : MonoBehaviour
     public static void adder(Itarget targ)
     {
         targets.Add(targ);
+    }
+
+    public static void vklucheniekubov()
+    {
+        Itarget[] targets11 = Targets.ToArray();
+        foreach (var o in targets11)
+        {
+            if (o != null)
+            {
+                o.setplayer();
+            }
+        }
     }
 }

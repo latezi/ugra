@@ -8,4 +8,6 @@ public interface Itarget
     void sound();
 
     Vector3 distance();
+
+    void setplayer();
 }

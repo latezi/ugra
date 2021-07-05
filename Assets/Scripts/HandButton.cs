@@ -95,6 +95,10 @@ public class HandButton : XRBaseInteractable
         {
             //Debug.Log("press");
             OnPress.Invoke();
+            if(tag == "gren")
+            {
+                currentweapon.vklucheniekubov();
+            }
         }         
 
         previvousPress = inPosition;

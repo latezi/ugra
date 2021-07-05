@@ -19,7 +19,6 @@ public class handcontroller : MonoBehaviour
         grip.action.performed += gripp;
         activate.action.performed += accctive;
         activate.action.canceled += dsfgsdsrt;
-
         dsfsd = GetComponent<Animator>();
     }
 
