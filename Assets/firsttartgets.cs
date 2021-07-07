@@ -32,6 +32,7 @@ public class firsttartgets : XRSocketInteractor
                 a = false;
                 lastobject = Instantiate(trgobject, transform.position, transform.rotation);
                 lastobject.GetComponent<targetcube>().gde = this;
+                currenttimer = 3.0f;
                 Debug.Log("spawned");
             }
             else
@@ -43,6 +44,6 @@ public class firsttartgets : XRSocketInteractor
 
     public void newcube()
     {     
-       // a = true;
+        a = true;
     }
 }
