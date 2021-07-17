@@ -10,31 +10,42 @@ public class wallsocket : XRSocketInteractor
     public GameObject spawnobject1;
     XRBaseInteractable last;
     public bool a = true;
-    bool b = true;
+    static bool b = true;
 
     protected override void Awake()
     {
         Instantiate(trgobject, transform.position, transform.rotation);
         selectExited.AddListener(razryazen);
-        selectExited.AddListener(wheee);
+       // selectExited.AddListener(wheee);
         base.Awake();
-    }
-
-    private void wheee(SelectExitEventArgs arg0)
-    {
-        last = arg0.interactable;
     }
 
     protected override void OnDisable()
     {
         selectExited.RemoveListener(razryazen);
-        selectExited.RemoveListener(wheee);
-        b = false;
+       // selectExited.RemoveListener(wheee);      
         base.OnDisable();
+    }
+
+    private void OnApplicationQuit()
+    {
+        b = false;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
+
+    protected override void OnEnable()
+    {
+        //b = true;
+        showInteractableHoverMeshes = false;
+        base.OnEnable();
     }
     private void razryazen(SelectExitEventArgs arg0)
     {
-        if (b && ((last!= null && last.enabled) ))//ошибка, или с ласт = нулл
+        if (b)
         {
             Instantiate(trgobject, transform.position, transform.rotation);
         }    
