@@ -20,15 +20,21 @@ public class pistolet : MonoBehaviour, Iweapon
     LineRenderer lineRenderer;
     public GameObject line1;
     public GameObject line2;
-    bool lineon = false;
+
+    public GameObject laserhandler;
+
+    public bool c = false;
+
+    //bool lineon = false;
 
     public void OnEnable()
     {
         xgab.activated.AddListener(strelba);
-        lineRenderer = GetComponent<LineRenderer>();
+        //lineRenderer = GetComponent<LineRenderer>();
         xgab.selectEntered.AddListener(fdgasdfg);
         xgab.selectExited.AddListener(sfkdfk);
-        lineRenderer.enabled = false;
+        //lineRenderer.enabled = false;
+        
     }
 
     public void OnDisable()
@@ -40,14 +46,14 @@ public class pistolet : MonoBehaviour, Iweapon
 
     private void sfkdfk(SelectExitEventArgs arg0)
     {
-        lineRenderer.enabled = false;
-        lineon = false;
+       /* lineRenderer.enabled = false;
+        lineon = false;*/
     }
 
     private void fdgasdfg(SelectEnterEventArgs arg0)
     {
-        lineon = true;
-        lineRenderer.enabled = true;
+        /*lineon = true;
+        lineRenderer.enabled = true;*/
     }
 
 
@@ -58,12 +64,12 @@ public class pistolet : MonoBehaviour, Iweapon
 
     void Update()
     {
-        if (lineon)
+        /*if (lineon)
         {
             lineRenderer.SetPosition(0, line1.transform.position);
             lineRenderer.SetPosition(1, line2.transform.position);
         }
-
+        */
     }
 
 
@@ -73,10 +79,11 @@ public class pistolet : MonoBehaviour, Iweapon
         {
             weaponsoundShot();
             RaycastHit hit;
-            if (Physics.Raycast(rayorig.position, rayorig.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, lay))
+            if (Physics.Raycast(rayorig.position, rayorig.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
+                lasercreation(hit.point);
                 if (hit.transform.GetComponent<Itarget>() != null)
-                {
+                {                    
                     if (hit.transform.GetComponent<targetcube>() != null)
                     {
                         hit.transform.GetComponent<targetcube>().catchbullet(pistol_damage);
@@ -94,6 +101,21 @@ public class pistolet : MonoBehaviour, Iweapon
         {
             weaponsoundReload();
         }
+    }
+
+    private void lasercreation(Vector3 point)
+    {
+        GameObject localhandler = Instantiate(laserhandler, rayorig.position, Quaternion.identity);
+        LineRenderer a = localhandler.GetComponent<LineRenderer>();
+        a.enabled = true;
+        a.SetPosition(0, rayorig.position);
+        a.SetPosition(1, point);    
+    }
+    public void ChangeAlpha(Material mat, float alphaValue)
+    {
+        Color oldColor = mat.color;
+        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaValue);
+        mat.SetColor("_Color", newColor);
     }
 
     public void weapanimation()

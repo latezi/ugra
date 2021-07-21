@@ -8,6 +8,8 @@ public class lifttrigger : MonoBehaviour
     public liftteleport lift;
     List<GameObject> z;
     public GameObject parent;
+    public kgjfhoi next;
+    public animatcii tthis;
 
     private void Start()
     {
@@ -17,12 +19,22 @@ public class lifttrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("111");
         if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
             if (other.GetComponent<magazine>()!= null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.CompareTag("gren") || other.GetComponent<swordd>()!= null || other.GetComponent<cheee>() != null)
             {
                 z.Add(other.gameObject);
             }           
+        }
+        else
+        {
+            if (other.CompareTag("player"))
+            {
+                tthis.dveri();
+                Debug.Log("1");
+            }
+            Debug.Log("11");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -59,5 +71,7 @@ public class lifttrigger : MonoBehaviour
         }
         lift.player.transform.position = lift.kuda.transform.position - new Vector3(0,1,0);
         spawnobject.transform.position = lift.kuda.transform.position;
+        next.otkrutue();
+        currentweapon.igrok_na_meste = true;
     }
 }

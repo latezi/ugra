@@ -8,7 +8,6 @@ public class targetcube : MonoBehaviour, Itarget
     public float hps = 1;
     public bool readytodam = false;
 
-    public bool igrok_na_meste = false;
     public bool kk = true;
 
     public bool cansetmaterial = true;
@@ -55,7 +54,7 @@ public class targetcube : MonoBehaviour, Itarget
     }
     void Update()
     {
-        if (igrok_na_meste)
+        if (currentweapon.igrok_na_meste)
         {
             if (kk)
             {
@@ -108,7 +107,7 @@ public class targetcube : MonoBehaviour, Itarget
 
     public void setplayer()
     {
-        igrok_na_meste = true;
+        //igrok_na_meste = true;
         Debug.Log("ya prishel");
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class currentweapon : MonoBehaviour
 {
+    public static bool igrok_na_meste = false;
+
     public static Iweapon currentweapon_1 = null;
     //public static bool ismag1pnplace = false;
 
