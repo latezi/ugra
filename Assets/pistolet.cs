@@ -17,24 +17,20 @@ public class pistolet : MonoBehaviour, Iweapon
 
     public int pistol_damage = 8;
 
-    LineRenderer lineRenderer;
-    public GameObject line1;
-    public GameObject line2;
+    public GameObject elline;
+    public Transform elline_niz;
+    public Transform elline_verh;
 
     public GameObject laserhandler;
 
     public bool c = false;
 
-    //bool lineon = false;
-
     public void OnEnable()
     {
         xgab.activated.AddListener(strelba);
-        //lineRenderer = GetComponent<LineRenderer>();
         xgab.selectEntered.AddListener(fdgasdfg);
         xgab.selectExited.AddListener(sfkdfk);
-        //lineRenderer.enabled = false;
-        
+        seeterline(0);
     }
 
     public void OnDisable()
@@ -46,14 +42,12 @@ public class pistolet : MonoBehaviour, Iweapon
 
     private void sfkdfk(SelectExitEventArgs arg0)
     {
-       /* lineRenderer.enabled = false;
-        lineon = false;*/
+
     }
 
     private void fdgasdfg(SelectEnterEventArgs arg0)
     {
-        /*lineon = true;
-        lineRenderer.enabled = true;*/
+
     }
 
 
@@ -64,18 +58,17 @@ public class pistolet : MonoBehaviour, Iweapon
 
     void Update()
     {
-        /*if (lineon)
+        /*if ()
         {
-            lineRenderer.SetPosition(0, line1.transform.position);
-            lineRenderer.SetPosition(1, line2.transform.position);
-        }
-        */
+
+        }*/
+        
     }
 
 
     public void fire()
     {
-        if (currentmagazine != null && Ismagazineonplace)
+        if (currentmagazine != null && Ismagazineonplace && currentmagazine.bullets>=12.5)
         {
             weaponsoundShot();
             RaycastHit hit;
@@ -91,16 +84,26 @@ public class pistolet : MonoBehaviour, Iweapon
                     }
                 }
             }
-            currentmagazine.bullets--;
+            currentmagazine.bullets -= (float)12.5;
+            seeterline(currentmagazine.bullets);
             if (currentmagazine.bullets == 0)
             {
-                currentmagazine.perezar(this);
+                //currentmagazine.perezar(this);
             }
         }
         else
         {
             weaponsoundReload();
         }
+    }
+
+    public void seeterline(float persents)
+    {
+        elline.transform.localPosition = calculline(elline_niz.localPosition, elline_verh.localPosition, persents);
+    }
+    public Vector3 calculline(Vector3 a, Vector3 b, float persents)
+    {
+        return new Vector3(a.x, a.y, a.z + (b.z-a.z)*persents/100); //(float)4.29 - (((float)4.29 + (float)1.67) * persents / 100)
     }
 
     private void lasercreation(Vector3 point)

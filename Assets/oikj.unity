@@ -4756,7 +4756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2490415828612445373, guid: 1f2a569a9279e864e9d67646b4fecfc9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2490415828612445373, guid: 1f2a569a9279e864e9d67646b4fecfc9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5887,7 +5887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2490415828612445373, guid: 1f2a569a9279e864e9d67646b4fecfc9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2490415828612445373, guid: 1f2a569a9279e864e9d67646b4fecfc9, type: 3}
       propertyPath: m_LocalScale.x
@@ -6555,7 +6555,7 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  trgobject: {fileID: 2459434127854405972, guid: ad6d2f42fefcaab4c8bc6db0d6799904, type: 3}
+  trgobject: {fileID: 838923129180420161, guid: ad6d2f42fefcaab4c8bc6db0d6799904, type: 3}
   spawnobject1: {fileID: 1883862253}
   a: 1
 --- !u!65 &1987698211
@@ -7253,7 +7253,7 @@ Transform:
   - {fileID: 690597523}
   - {fileID: 1869629112}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543741703133872138
 Transform:
@@ -8299,7 +8299,7 @@ Transform:
   - {fileID: 8593287252738377700}
   - {fileID: 1343958651}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3493485174354545254
 MeshFilter:

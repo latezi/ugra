@@ -10,20 +10,21 @@ public class socketwithtagcheck : XRSocketInteractor
 
     protected override void OnEnable()
     {
-        this.selectEntered.AddListener(zaryazhen);
-        this.selectExited.AddListener(razryazen);
+        selectEntered.AddListener(zaryazhen);
+        selectExited.AddListener(razryazen);
         base.OnEnable();
     }
     protected override void OnDisable()
     {
-        this.selectEntered.RemoveListener(zaryazhen);
-        this.selectExited.RemoveListener(razryazen);
+        selectEntered.RemoveListener(zaryazhen);
+        selectExited.RemoveListener(razryazen);
         base.OnDisable();
     }
     private void razryazen(SelectExitEventArgs arg0)
     {
         Debug.Log("ne v pistolete");
         arg0.interactor.GetComponentInParent<pistolet>().currentmagazine = null;
+        arg0.interactor.GetComponentInParent<pistolet>().seeterline(0);
         arg0.interactor.GetComponentInParent<pistolet>().Ismagazineonplace = false;
     }
 
@@ -32,6 +33,7 @@ public class socketwithtagcheck : XRSocketInteractor
         Debug.Log("v pistolete");
         arg0.interactable.GetComponent<magazine>().tty = this;
         arg0.interactor.GetComponentInParent<pistolet>().currentmagazine = arg0.interactable.GetComponent<magazine>();
+        arg0.interactor.GetComponentInParent<pistolet>().seeterline(arg0.interactor.GetComponentInParent<pistolet>().currentmagazine.bullets);
         arg0.interactor.GetComponentInParent<pistolet>().Ismagazineonplace = true;  
     }
 
