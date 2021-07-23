@@ -23,6 +23,7 @@ public class socketwithtagcheck : XRSocketInteractor
     private void razryazen(SelectExitEventArgs arg0)
     {
         Debug.Log("ne v pistolete");
+       // arg0.interactable.GetComponent<magazine>().triggersoff();
         arg0.interactor.GetComponentInParent<pistolet>().currentmagazine = null;
         arg0.interactor.GetComponentInParent<pistolet>().seeterline(0);
         arg0.interactor.GetComponentInParent<pistolet>().Ismagazineonplace = false;
@@ -31,6 +32,7 @@ public class socketwithtagcheck : XRSocketInteractor
     private void zaryazhen(SelectEnterEventArgs arg0)
     {
         Debug.Log("v pistolete");
+        //arg0.interactable.GetComponent<magazine>().triggerson();
         arg0.interactable.GetComponent<magazine>().tty = this;
         arg0.interactor.GetComponentInParent<pistolet>().currentmagazine = arg0.interactable.GetComponent<magazine>();
         arg0.interactor.GetComponentInParent<pistolet>().seeterline(arg0.interactor.GetComponentInParent<pistolet>().currentmagazine.bullets);

@@ -204,7 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 838923129180420284}
+  - {fileID: 838923129180420285}
+  - {fileID: 838923129180420287}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -335,8 +338,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2160912, y: 32.26734, z: 18.358803}
-  m_Center: {x: 0.038095668, y: -15.133985, z: 4.830941}
+  m_Size: {x: 3.2160912, y: 20.059374, z: 18.664103}
+  m_Center: {x: 0.038095713, y: -9.030003, z: 4.6782913}
 --- !u!65 &838923129180420285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -348,8 +351,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2160912, y: 14.170008, z: 30.254953}
-  m_Center: {x: 0.038095668, y: -50.797424, z: 9.782861}
+  m_Size: {x: 3.2160912, y: 10.722105, z: 29.503332}
+  m_Center: {x: 0.038095713, y: -53.252487, z: 10.158655}
 --- !u!65 &838923129180420287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -361,8 +364,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2160912, y: 12.177386, z: 9.684724}
-  m_Center: {x: 0.03809567, y: -37.388477, z: 9.031698}
+  m_Size: {x: 3.2160912, y: 29.068027, z: 7.1541176}
+  m_Center: {x: 0.038095713, y: -33.57718, z: 10.296968}
 --- !u!1 &1509827922827673246
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,6 @@ public class lifttrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("111");
         if (!other.CompareTag("button") && !other.CompareTag("player"))
         {
             if (other.GetComponent<magazine>()!= null || other.GetComponent<pistolet>() != null || other.GetComponent<ovmagaz>() != null || other.GetComponent<avtomat>() != null || other.CompareTag("gren") || other.GetComponent<swordd>()!= null || other.GetComponent<cheee>() != null)
@@ -32,9 +31,7 @@ public class lifttrigger : MonoBehaviour
             if (other.CompareTag("player"))
             {
                 tthis.dveri();
-                Debug.Log("1");
             }
-            Debug.Log("11");
         }
     }
     private void OnTriggerExit(Collider other)

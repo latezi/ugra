@@ -16,6 +16,24 @@ public class magazine : XRGrabInteractable
         base.Awake();
     }
 
+
+    public void triggerson() 
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+        foreach (var a in GetComponents<BoxCollider>())
+        {
+            a.enabled = true;
+        }
+    }
+    public void triggersoff()
+    {
+        GetComponent<CapsuleCollider>().enabled = true;
+        foreach (var a in GetComponents<BoxCollider>())
+        {
+            a.enabled = false;
+        }       
+    }
+
     public void perezar(pistolet a)
     {
         tty.onSelectExited.Invoke(this.GetComponent<XRGrabInteractable>());
