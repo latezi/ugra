@@ -39,7 +39,7 @@ public class kobursocket : XRSocketInteractor
         {
             if (pist.currentmagazine!= null && pist.currentmagazine.bullets < 100)
             {
-                pist.currentmagazine.bullets += Time.deltaTime;               
+                pist.currentmagazine.bullets += Time.deltaTime*3;               
                 pist.seeterline(pist.currentmagazine.bullets);
             }           
         }
