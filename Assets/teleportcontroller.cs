@@ -16,7 +16,7 @@ public class teleportcontroller : MonoBehaviour
     {
         telepotrActionReference.action.performed += teleportmodeactivated;
         telepotrActionReference.action.canceled += teleportmodecancel;
-    }
+    }    
 
     private void teleportmodecancel(InputAction.CallbackContext obj)
     {

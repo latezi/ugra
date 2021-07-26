@@ -16,21 +16,15 @@ public class HandButton : XRBaseInteractable
 
     protected override void Awake()
     {
-
         base.Awake();
         hoverEntered.AddListener(Startpress);
-
-        //onHoverEnter.AddListener(Startpress);
         hoverExited.AddListener(Findpress);
-        //onHoverExit.AddListener(Findpress);
     }
 
     private new void OnDestroy()
     {
         hoverEntered.RemoveListener(Startpress);
         hoverExited.RemoveListener(Findpress);
-        //onHoverEnter.RemoveListener(Startpress);
-        // onHoverExit.RemoveListener(Findpress);
     }
 
     private void Startpress(HoverEnterEventArgs arg0)
@@ -43,7 +37,6 @@ public class HandButton : XRBaseInteractable
     {
         hoveriteractor = null;
         previousHandHeight = 0.0f;
-
         previvousPress = false;
         SetYPosition(yMax);
     }
@@ -66,10 +59,8 @@ public class HandButton : XRBaseInteractable
             float newHandHeight = GetLocalYPosition(hoveriteractor.transform.position);
             float handDifference = previousHandHeight - newHandHeight;
             previousHandHeight = newHandHeight;
-
             float newPosition = transform.localPosition.y - handDifference;
             SetYPosition(newPosition);
-
             CheckPress();
         }
     }
@@ -87,13 +78,17 @@ public class HandButton : XRBaseInteractable
         transform.localPosition = newPosition;
     }
 
+    /*public override bool IsSelectableBy(XRBaseInteractor interactor)
+    {
+        return true;//base.IsSelectableBy(interactor);
+    }*/
+
     private void CheckPress()
     {
         bool inPosition = InPosition();
 
         if (inPosition && inPosition != previvousPress)
         {
-            //Debug.Log("press");
             OnPress.Invoke();
             if(tag == "gren")
             {
